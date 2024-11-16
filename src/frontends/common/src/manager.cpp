@@ -40,7 +40,8 @@ public:
                                                                                 {"tflite", "tensorflow_lite"},
                                                                                 {"paddle", "paddle"},
                                                                                 {"pytorch", "pytorch"},
-                                                                                {"jax", "jax"}};
+                                                                                {"jax", "jax"},
+                                                                                {"ggml", "ggml"}};
         auto it = predefined_frontends.find(framework);
         std::lock_guard<std::mutex> guard(m_loading_mutex);
         if (it != predefined_frontends.end()) {
