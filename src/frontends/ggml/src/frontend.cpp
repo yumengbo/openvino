@@ -59,7 +59,7 @@ ov::frontend::InputModel::Ptr FrontEnd::load_impl(const std::vector<ov::Any>& va
                             "object using API.");
     auto graph_iterator = variants[0].as<std::shared_ptr<GraphIterator>>();
     auto ggml_graph_iterator = std::dynamic_pointer_cast<GgmlGraphIterator>(graph_iterator);
-    FRONT_END_GENERAL_CHECK(ggml_graph_iterator, "Couldn't cast ov::Any to GraphIterator");
+    FRONT_END_GENERAL_CHECK(ggml_graph_iterator, "Couldn't cast ov::Any to GgmlGraphIterator");
     return std::make_shared<ggml::InputModel>(ggml_graph_iterator);
 }
 

@@ -33,6 +33,10 @@ public:
         return m_decoder->get_input_type(index);
     }
 
+    PartialShape get_input_shape(size_t index) const {
+        return m_decoder->get_input_shape(index);
+    }
+
     Output<Node> get_input(int idx) const override;
 
     Output<Node> get_input(const std::string& name) const override {

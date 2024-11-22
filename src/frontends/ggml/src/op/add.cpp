@@ -8,6 +8,7 @@ namespace frontend {
 namespace ggml {
 namespace op {
 
+// Not used at present
 OutputVector translate_add_common(const NodeContext& context, bool inplace) {
     num_inputs_check(context, 2, 3);
     Output<Node> lhs;
