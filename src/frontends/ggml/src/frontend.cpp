@@ -25,7 +25,6 @@ std::shared_ptr<Model> FrontEnd::convert(const InputModel::Ptr& model) const{
         TranslateSession translate_session(model, supported_ops);
         converted_model = translate_session.get_converted_model();
         // dump_ov_model(converted_model);
-        serialize_example(converted_model);
     }
     return converted_model;
 }

@@ -50,10 +50,6 @@ std::string getCurrentTime() {
 //     }
 // }
 
-void serialize_example(const std::shared_ptr<ov::Model>& model) {
-    ov::serialize(model, "/home/yumeng/Code/ov-ggml-frontend/openvino/build/model.xml", "/home/yumeng/Code/ov-ggml-frontend/openvino/build/model.bin");
-}
-
 void num_inputs_check(const NodeContext& context, size_t min_inputs, size_t max_inputs) {
     auto input_size = context.get_input_size();
     FRONT_END_OP_CONVERSION_CHECK(input_size >= min_inputs, "Got less inputs than expected");

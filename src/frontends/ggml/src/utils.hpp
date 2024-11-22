@@ -12,8 +12,6 @@ void dump_ov_model (const std::shared_ptr<ov::Model> model) ;
 
 void num_inputs_check(const NodeContext& context, size_t min_inputs, size_t max_inputs);
 
-void serialize_example(const std::shared_ptr<ov::Model>& model);
-
 namespace op {
 template <typename T>
 OutputVector translate_1to1_match_2_inputs(const NodeContext& context) {
