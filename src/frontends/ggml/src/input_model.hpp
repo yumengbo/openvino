@@ -1,7 +1,7 @@
 #pragma once
 
 #include "openvino/frontend/input_model.hpp"
-#include "openvino/frontend/place.hpp"
+#include "place.hpp"
 #include "openvino/frontend/ggml/graph_iterator.hpp"
 
 
@@ -21,12 +21,18 @@ public:
 
     std::vector<frontend::Place::Ptr> get_inputs() const override;
     std::vector<frontend::Place::Ptr> get_outputs() const override;
+    std::vector<std::shared_ptr<OpPlace>> get_op_places() const;
+
+    void dump_input_model() const;
 
 private:
+    void load_places();
     std::shared_ptr<GgmlGraphIterator> m_graph_iterator;
     std::unordered_map<std::string, std::shared_ptr<frontend::Place>> m_name_to_place;
     std::vector<std::shared_ptr<frontend::Place>> m_inputs;
-    std::vector<std::shared_ptr<frontend::Place>> m_outputs;                                                                                                          
+    std::vector<std::shared_ptr<frontend::Place>> m_outputs;       
+    std::vector<std::shared_ptr<OpPlace>> m_op_places;
+    std::map<std::string, std::shared_ptr<OpPlace>> m_op_places_map;                                                                                                   
 };
 
 }  // namespace ggml

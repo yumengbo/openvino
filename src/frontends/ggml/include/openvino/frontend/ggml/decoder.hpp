@@ -14,7 +14,7 @@ public:
 
     virtual PartialShape get_input_shape(size_t index) const =0;
 
-    virtual Any get_input_type(size_t index) const =0;
+    virtual element::Type get_input_type(size_t index) const =0;
 
     virtual size_t get_input_size() const =0;
 
@@ -23,9 +23,19 @@ public:
                                 std::string& producer_output_port_name,
                                 size_t& producer_output_port_index) const =0;
 
+    virtual bool is_graph_input(size_t index) const = 0;
+
+    virtual std::string& get_input_name(size_t index) const = 0;
+
     virtual PartialShape get_output_shape(size_t index) const =0;
 
-    virtual Any get_output_type(size_t index) const =0;
+    virtual element::Type get_output_type(size_t index) const =0;
+
+    virtual size_t get_output_size() const = 0;
+
+    virtual bool is_graph_output(size_t index) const = 0;
+
+    virtual std::string& get_output_name(size_t index) const = 0;
 
     virtual const std::string& get_op_type() const =0;
 
